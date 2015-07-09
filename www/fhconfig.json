@@ -1,0 +1,22 @@
+{
+  "appid": "",
+  "appkey": "",
+  "apptitle": "",
+  "connectiontag": "",
+  "host": "",
+  "projectid": "",
+   "pushServerURL": "",
+    "android": {
+        "senderID": "",
+        "variantID": "",
+        "variantSecret": ""
+    },
+    "ios": {
+        "variantID": "",
+        "variantSecret": ""
+    },
+    "windows": {
+      "variantID": "",
+      "variantSecret": ""
+    }   
+}
