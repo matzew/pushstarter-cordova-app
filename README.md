@@ -1,33 +1,49 @@
-FeedHenry Blank Hybrid App
-==========================
 
-A basic 'hello world' Hybrid App.
+# Cordova Push Template
+---------
+Author: Erik Jan de Wit   
+Level: Intermediate  
+Technologies: Javascript, Cordova, RHMAP  
+Summary: A demonstration of how to use push notifications with RHMAP.  
+Community Project : [Feed Henry](http://feedhenry.org)
+Target Product: RHMAP  
+Product Versions: RHMAP 3.8.0+   
+Source: https://github.com/feedhenry-templates/pushstarter-cordova-app  
+Prerequisites: fh-js-sdk : 3.0.+, Cordova : 4.0 or newer
 
-# Grunt
+## What is it?
 
-This template uses [Grunt](http://gruntjs.com/), the Javascript Task Runner. To use Grunt with this Template App, do the following:
+This application shows a list of the push messages that have been recieved with RHMAP.  Refer to [fhconfig.json](www/fhconfig.json) for the relevant configuraiton.
 
-* Install grunt: ```npm install -g grunt-cli```
-* In your App directory, run: ```npm install```. This installs Grunt plugins, etc for use with this App.
-* Run ```grunt serve``` to preview this App locally
+If you do not have access to a RHMAP instance, you can sign up for a free instance at [https://openshift.feedhenry.com/](https://openshift.feedhenry.com/).
 
+## How do I run it?  
 
-### FeedHenry local development
+### RHMAP Studio
 
-You can also use Grunt to point your App at a local developement server. To do this, use the ```grunt serve:local``` command. Some notes on using the serve:local task:
+This application and its cloud services are available as a project template in RHMAP as part of the "Push Notification Hello World" template.
 
-* by default, the local server development url is: http://localhost:8001
-* you can change this directly in your local Gruntfile.js, in the app config:
+### Local Clone (ideal for Open Source Development)
+If you wish to contribute to this template, the following information may be helpful; otherwise, RHMAP and its build facilities are the preferred solution.
 
-```
-  app: {
-    // configurable paths
-    app: 'www',
-    url: '',
-    default_local_server_url: 'http://localhost:8001'
-  },
-```
+###  Prerequisites  
+ * fh-js-sdk : 3.0.+
+ * Cordova : 4.0 or newer
 
-* you can also pass a 'url' optional flag to server:local, e.g. ```grunt serve:local --url=http://localhost:9000```
+## Build instructions
 
-* We can also write your own tasks by extending the Gruntfile.js, e.g. add a 'serve:live' target that hits your server in your FeedHenry live enivronment.
+ * Edit [fhconfig.json](www/fhconfig.json) to include the relevant information from RHMAP.  
+ * cordova create <bundle-id> pushstarter
+ * cordova plugin add aerogear-cordova-push
+ * cordova platform add <ios android windows>
+ * cordova run --device
+
+## How does it work?
+
+### Initialization
+
+[index.js#register](www/js/index.js#L30) is the method which is responsible for configuring and setting up push.  Further details are available in our [API documentation](http://docs.feedhenry.com/v3/api/api_push.html).
+
+### Sending messages
+
+Once a message is received the [index.js#onNotification(event)](www/js/index.js#L45) callback is called and will display the message on the UI. You can send messages from the RHMAP studio under the push tab.
