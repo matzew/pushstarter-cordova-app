@@ -30,6 +30,11 @@ If you wish to contribute to this template, the following information may be hel
  * fh-js-sdk : 3.0.+
  * Cordova : 4.0 or newer
 
+## Firebase Cloud Messaging
+
+ * You need to have a valid Firebase Cloud Messaging project setup. Download the `google-services.json` file from the Firebase Console and put it into the `www` directory of your app.
+ * You also need to use the `package` from the Firebase Cloud Messaging configuration. In the studio, you specify this package on the *Config* menu in the *Android* option.
+
 ## Build instructions
 
  * Edit [fhconfig.json](www/fhconfig.json) to include the relevant information from RHMAP.  
