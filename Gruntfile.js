@@ -54,6 +54,10 @@ module.exports = function (grunt) {
       }
     },
 
+    browserify: {
+      'www/main.js': ['www/**/*.js']
+    },
+
     // The actual grunt server settings
     connect: {
       options: {
@@ -93,6 +97,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'browserify',
       'clean:server',
       'connect:livereload',
       'watch'
@@ -100,4 +105,5 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', ['serve']);
+  grunt.loadNpmTasks('grunt-browserify');
 };
